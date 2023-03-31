@@ -1,0 +1,107 @@
+
+ 
+ body 
+ {
+ }
+
+.principal 
+{
+	background: yellow;
+	padding: 20px;
+}
+
+.titulo-principal 
+{
+
+
+	
+}
+
+.titulo-principal:active {
+    border-color: #C895C1;
+
+}
+
+
+
+.titulo-centralizado
+ {
+	  text-align : center;
+	} 
+
+
+
+em strong 
+{
+
+	color:#FF0000;
+}
+
+
+
+ul
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 80%;
+	margin-right: 15%;
+    text-align: center;
+    
+
+}
+
+
+
+.itens li {
+
+    display:inline-block;
+    text-align:center;
+    width:30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 90px;
+
+}
+.cafe {
+
+    font-size: 13px;
+    margin: 20px 0 0;
+    width: 50%;
+    display: inline-block;
+}
+
+.pizza {
+
+    font-size: 13px;
+    margin: 20px 0 0;
+    width: 50%;
+    display: inline-block;
+
+
+}
+
+
+
+.itens h2
+{
+font-size: 15px;
+font-weight: bold;
+
+}
+.decricao
+{
+font-size: 12px;
+
+}
+
+.preco
+{
+    font-size:12px;
+    font-weight:bold;
+    margin-top:10px:
+
+
+}
