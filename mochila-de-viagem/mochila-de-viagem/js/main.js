@@ -13,9 +13,6 @@ criaElemento(nome.value, quantidade.value);
 nome.value = ""
 quantidade.value = ""
 
-
-
-
 }) 
 
 function criaElemento(nome, quantidade){
@@ -37,7 +34,11 @@ function criaElemento(nome, quantidade){
 
     lista.appendChild(novoItem); //adiciona o novoItem na lista
 
-    localStorage.setItem("nome",nome)
-    localStorage.setItem("quantidade",quantidade)
+    const itemAtual = {
+        "nome":nome,                                    //Criando um objeto que contém nome e quantidade
+        "quantidade":quantidade
+    }
+
+    localStorage.setItem("item", itemAtual)
 
 }
