@@ -1,7 +1,10 @@
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
+const itens = JSON.parse(localStorage.getItem("itens")) || []; //transformando a string em array novamente
 
-
+itens.forEach((element) => {
+    
+});
 
 form.addEventListener("submit", (evento)=>{
 evento.preventDefault()
@@ -39,6 +42,7 @@ function criaElemento(nome, quantidade){
         "quantidade":quantidade
     }
 
-    localStorage.setItem("item", itemAtual)
+    itens.push(itemAtual);  //Pego o item e coloco no array item.
 
+    localStorage.setItem("itens",JSON.stringify(itens))  //O JSON.stringify tranforma o nosso objeto em texto.
 }
