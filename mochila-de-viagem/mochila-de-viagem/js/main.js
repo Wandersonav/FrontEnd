@@ -1,24 +1,39 @@
 const form = document.getElementById("novoItem");
 const lista = document.getElementById("lista");
+
 const itens = JSON.parse(localStorage.getItem("itens")) || []; //transformando a string em array novamente
 
-itens.forEach((element) => {
-    
-});
+// Uso do forEach para que todos os itens já escritos na lista sejam mantidos ao atualizar a página 
 
-form.addEventListener("submit", (evento)=>{
+itens.forEach((elemento) => {
+    criaElemento(elemento)
+    
+})
+
+form.addEventListener("submit", (evento) => {
 evento.preventDefault()
 
 const nome = evento.target.elements['nome']
 const quantidade = evento.target.elements['quantidade']
 
-criaElemento(nome.value, quantidade.value);
+
+const itemAtual = {
+    "nome":nome.value,                                    //Criando um objeto que contém nome e quantidade
+    "quantidade":quantidade.value
+}
+
+criaElemento(itemAtual);
+
+
+itens.push(itemAtual);  //Pego o item e coloco no array item.
+
+localStorage.setItem("itens",JSON.stringify(itens))  //O JSON.stringify tranforma o nosso objeto em texto.
+
 nome.value = ""
 quantidade.value = ""
-
 }) 
 
-function criaElemento(nome, quantidade){
+function criaElemento(item){
 
     console.log(nome);
     console.log(quantidade);
@@ -30,19 +45,12 @@ function criaElemento(nome, quantidade){
   
   
     const numeroItem = document.createElement('strong');
-    numeroItem.innerHTML = quantidade;
+    numeroItem.innerHTML = item.quantidade;
 
     novoItem.appendChild(numeroItem)   //Os elemento criados via JavaScript são objetos que devem ser manipulados como objeto através do appendChild
-    novoItem.innerHTML += nome;
+    novoItem.innerHTML += item.nome;
 
     lista.appendChild(novoItem); //adiciona o novoItem na lista
 
-    const itemAtual = {
-        "nome":nome,                                    //Criando um objeto que contém nome e quantidade
-        "quantidade":quantidade
-    }
 
-    itens.push(itemAtual);  //Pego o item e coloco no array item.
-
-    localStorage.setItem("itens",JSON.stringify(itens))  //O JSON.stringify tranforma o nosso objeto em texto.
 }
