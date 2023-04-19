@@ -25,12 +25,23 @@ const existe = itens.find(elemento => elemento.nome === nome.value); //Buscando 
    
 //console.log(existe);
 
+function atualizaElemento(item){
+
+       
+    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade // essa função atualiza os elementos
+
+}
+
 if(existe){
-itemAtual.id = existe.id
-}else{
+    itemAtual.id = existe.id
 
-    itemAtual.id = itens.lenght // item vai receber o ID do tamanho que estiver o array
+    atualizaElemento(itemAtual)
 
+    itens[existe.id] = itemAtual
+
+} else {
+
+    itemAtual.id = itens.length // item vai receber o ID do tamanho que estiver o array
     criaElemento(itemAtual) // cria o item
     itens.push(itemAtual)  //Pego o item e coloco no array item.
     
@@ -65,6 +76,9 @@ function criaElemento(item){
     novoItem.innerHTML += item.nome;
 
     lista.appendChild(novoItem); //adiciona o novoItem na lista
+
+
+
 
 
 }
