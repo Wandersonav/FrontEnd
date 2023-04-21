@@ -36,13 +36,16 @@ if(existe){
     itemAtual.id = existe.id
 
     atualizaElemento(itemAtual)
-
-    itens[existe.id] = itemAtual
-
+    itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual
 } else {
+    itemAtual.id = itens[itens.length -1] ? (itens[itens.length-1]).id + 1 : 0; //operador ternario SE/ENTÃO
 
-    itemAtual.id = itens.length // item vai receber o ID do tamanho que estiver o array
-    criaElemento(itemAtual) // cria o item
+
+//  itens[existe.id] = itemAtual    
+//} else {
+//   itemAtual.id = itens.length // item vai receber o ID do tamanho que estiver o array
+  
+criaElemento(itemAtual) // cria o item
     itens.push(itemAtual)  //Pego o item e coloco no array item.
     
 }
@@ -66,7 +69,7 @@ function criaElemento(item){
     const novoItem = document.createElement('li');
     novoItem.classList.add("item");
   
-
+    
 
     const numeroItem = document.createElement('strong');
     numeroItem.innerHTML = item.quantidade;
@@ -75,10 +78,29 @@ function criaElemento(item){
     novoItem.appendChild(numeroItem)   //Os elemento criados via JavaScript são objetos que devem ser manipulados como objeto através do appendChild
     novoItem.innerHTML += item.nome;
 
+    novoItem.appendChild(deletaBotao());
     lista.appendChild(novoItem); //adiciona o novoItem na lista
 
+}
 
+function deletaBotao(){
 
+    const elementoBotao = document.createElement("button")
 
+    elementoBotao.innerHTML = "X"
+
+    elementoBotao.addEventListener("click", function () {
+        deletaElemento(this.parentNode)   // this e filho do li
+    })
+
+    return elementoBotao;
+ }
+
+ function deletaElemento(tag, id){
+    tag.remove() 
+
+    {itens.splice(itens.findIndex(elemento => elemento.id === id), 1) 
+        localStorage.setItem("itens", JSON.stringify(itens))    //remover aquela tag 
+   }
 
 }
