@@ -12,7 +12,9 @@ function onSpeak(e){
 
     chute = e.results[0][0].transcript
     exibeChuteNaTela(chute)
+    verificaSeOChutePossuiValorValido(chute)
 }
+
 
 function exibeChuteNaTela(chute){
 
@@ -20,4 +22,5 @@ function exibeChuteNaTela(chute){
     `<div>Você disse</div>
     <span class="box" >${chute}</span> 
     `
-}
+
+} 
