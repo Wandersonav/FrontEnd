@@ -2,7 +2,7 @@
 
 :root {
     --font-family:'Montserrat', sans-serif;
-    --bg-color:#263159;
+    --bg-color:#1F8A70;
     --primary-color:#B4E4FF;
 }
 
@@ -27,6 +27,11 @@ h1 {
 
 }
 
+h2{
+    font-size: 2em;
+
+}
+
 h3{
 
     font-size: 3em;
@@ -47,5 +52,15 @@ h3{
     padding: 10px;
     margin: 20px;
 
+
+}
+
+.btn-jogar{
+
+    padding:8px 15px;
+    border:0 ;
+    background: var(primary-color);
+    border-radius:5px;
+    margin-top:20px;
 
 }

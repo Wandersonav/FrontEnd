@@ -24,3 +24,5 @@ function exibeChuteNaTela(chute){
     `
 
 } 
+
+recognition.addEventListener('end', () => recognition.start()) //Quando reconhecimento acabar, liga microfone novamente.
